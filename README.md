@@ -76,6 +76,11 @@ POSTGRES_PASSWORD=your-secure-password
 TELEGRAM_BOT_TOKEN=your-telegram-bot-token
 ```
 
+**⚠️ Важно:** `TELEGRAM_BOT_TOKEN` обязателен для работы бота. Получите токен у [@BotFather](https://t.me/BotFather):
+   - Отправьте `/newbot`
+   - Следуйте инструкциям
+   - Скопируйте полученный токен в `.env`
+
 4. **Запустите все сервисы:**
 ```bash
 docker-compose up --build

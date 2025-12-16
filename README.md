@@ -57,7 +57,7 @@
 
 1. **Клонируйте репозиторий:**
 ```bash
-git clone <repository-url>
+git clone https://github.com/IgorNadein/ToDo.git
 cd ToDo
 ```
 

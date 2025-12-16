@@ -89,7 +89,6 @@ docker-compose exec backend python manage.py createsuperuser
 6. **Доступ к сервисам:**
    - API: http://localhost:8000/api/
    - Admin панель: http://localhost:8000/admin/
-   - Telegram бот: @your_bot_username
 
 ## 📚 API Endpoints
 
@@ -129,6 +128,29 @@ docker-compose exec backend python manage.py createsuperuser
 - **Cache/Broker:** Redis 7
 - **Task Queue:** Celery 5.4
 - **Containerization:** Docker, Docker Compose
+- **Testing:** pytest, pytest-cov, pytest-asyncio
+
+## 🧪 Тестирование
+
+Проект покрыт тестами с использованием pytest.
+
+### Запуск тестов backend:
+```bash
+cd backend
+pip install -r requirements.txt
+python -m pytest tests/ -v --cov
+```
+
+### Запуск тестов bot:
+```bash
+cd bot
+pip install -r requirements.txt
+python -m pytest tests/ -v --cov
+```
+
+### Покрытие тестами:
+- **Backend:** 97% (94 теста)
+- **Bot:** 95% (54 теста)
 
 ## ⚠️ Трудности и их решения
 
@@ -182,10 +204,22 @@ ToDo/
 │   │   ├── tasks.py
 │   │   ├── urls.py
 │   │   └── views.py
+│   ├── tests/
+│   │   ├── conftest.py
+│   │   ├── test_models.py
+│   │   ├── test_serializers.py
+│   │   ├── test_tasks.py
+│   │   └── test_views.py
 │   ├── Dockerfile
 │   ├── manage.py
 │   └── requirements.txt
 ├── bot/
+│   ├── tests/
+│   │   ├── conftest.py
+│   │   ├── test_api_client.py
+│   │   ├── test_dialogs.py
+│   │   ├── test_handlers.py
+│   │   └── test_states.py
 │   ├── main.py
 │   ├── handlers.py
 │   ├── dialogs.py
@@ -198,7 +232,3 @@ ToDo/
 ├── .gitignore
 └── README.md
 ```
-
-## 📝 Лицензия
-
-MIT License
